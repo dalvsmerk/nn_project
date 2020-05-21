@@ -1,1 +1,1 @@
-web: yarn start
+web: yarn add webpack && yarn start
