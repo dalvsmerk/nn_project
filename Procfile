@@ -1,1 +1,1 @@
-web: yarn add webpack && yarn start
+web: yarn add express webpack && yarn start
