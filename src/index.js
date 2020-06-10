@@ -39,6 +39,7 @@ async function runRecognizer() {
   const classifier = new cv.CascadeClassifier();
 
   classifier.load('haarcascade_frontalface_default.xml');
+  hideSpinner();
 
   async function processVideo() {
     try {
@@ -63,7 +64,6 @@ async function runRecognizer() {
     }
   }
   setTimeout(processVideo, 0);
-  hideSpinner();
 }
 
 /**
