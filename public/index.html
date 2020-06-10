@@ -5,14 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Facial Expression Recognition</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: black;
+        overflow: hidden;
+      }
+
+      #errorMessage,
+      #videoInput {
+        display: none;
+      }
+
+      .container {
+        width: 80vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .spinner-container {
+        position: absolute;
+        width: 80vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 1;
+        transition: opacity 300ms;
+      }
+
+      .spinner-container img {
+        width: 200px;
+        height: 200px;
+      }
+
+      .spinner-container--hidden {
+        opacity: 0;
+      }
+
+      #canvasOutput {
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
     <p id="errorMessage"></p>
-    <video style="display: none" id="videoInput"></video>
-    <canvas id="canvasOutput"></canvas>
-    <p id="emotion"></p>
-    <p id="prob"></p>
-    <canvas id="ebalo" width="100" height="100"></canvas>
+    <video id="videoInput"></video>
+    <div class="spinner-container">
+      <img src="spinner.gif" />
+    </div>
+
+    <div class="container">
+      <canvas id="canvasOutput"></canvas>
+    </div>
 
     <script src="https://docs.opencv.org/3.4/utils.js"></script>
     <!-- <script src="https://docs.opencv.org/3.4.0/opencv.js"></script> -->
