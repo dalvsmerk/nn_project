@@ -67,7 +67,7 @@ async function runRecognizer() {
 }
 
 /**
- * Transform extracted faces to model input
+ * Transform extracted faces to greyscale model input
  *
  * @param {cv.Mat} src Buffer to extract faces from
  *
@@ -101,7 +101,7 @@ function extractGreyscaleFaces(src, faces) {
  * Predicts facial expression labels for a batch of faces
  *
  * @param {tf.LayersModel} model Facial expression classifier
- * @param {tf.Tensor4D} faces Tensor of extracted greyscale faces
+ * @param {tf.Tensor4D} faces Batch of extracted greyscale faces
  *
  * @returns {array} Array of prediction [[label, probability]]
  */
@@ -155,7 +155,7 @@ function drawPredictions(faces, preds, dst) {
  *
  * @param {bool} summary Controls visibility of model summary
  *
- * @returns Tensorflowjs model
+ * @returns {tf.LayersModel} Classifier model
  */
 async function loadModel(summary = false) {
   try {
